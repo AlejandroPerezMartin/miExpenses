@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<!-- <html manifest="./offline.appcache"> -->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Title -->
+    <title>miExpenses - Take control of your expenses!</title>
+    <meta name="application-name" content="miExpenses" />
+    <meta name="apple-mobile-web-app-title" content="miExpenses">
+
+    <!-- Hide browser UI -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <!-- Status bar style -->
+    <meta name="theme-color" content="#428bca">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <!-- Icons -->
+    <link rel="icon" sizes="192x192" href="icon.png">
+    <link rel="apple-touch-icon" href="icon.png">
+    <meta name="msapplication-square70x70logo" content="icon\_smalltile.png">
+    <meta name="msapplication-square150x150logo" content="icon\_mediumtile.png">
+    <meta name="msapplication-wide310x150logo" content="icon\_widetile.png">
+    <meta name="msapplication-square310x310logo" content="icon\_largetile.png">
+
+    <!-- Startup image (only iOS) -->
+    <link rel="apple-touch-startup-image" href="/startup.png">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="bower_components/ratchet/dist/css/ratchet.min.css">
+    <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.min.css">
+    <link rel='stylesheet' href='style.css' type='text/css' media='all'>
+</head>
+<body>
+
+    <!-- App Header -->
+    <header class="bar bar-nav">
+        <h1 class="title">miExpenses</h1>
+    </header>
+
+    <!-- Main content -->
+    <div class="content">
+        <div class="content-padded">
+            <ul id="expensesList" class="table-view"></ul>
+        </div> <!-- .content-padded -->
+
+        <!-- Navigation -->
+        <nav class="bar bar-tab">
+            <a class="tab-item" href="#chartModal">
+                <span class="icon fa fa-pie-chart"></span>
+                <span class="tab-label">Chart</span>
+            </a>
+            <a class="tab-item" href="#addExpenseModal">
+                <span class="icon fa fa-plus-square"></span>
+                <span class="tab-label">Add expense</span>
+            </a>
+            <a class="tab-item" href="#">
+                <span class="icon icon-gear"></span>
+                <span class="tab-label">Settings</span>
+            </a>
+        </nav> <!-- .bar .bar-tab -->
+
+        <!--
+            CHART MODAL
+         -->
+        <div id="chartModal" class="modal">
+            <header class="bar bar-nav">
+                <a class="icon icon-close pull-right" href="#chartModal"></a>
+                <h1 class="title">Monthly expenses</h1>
+            </header> <!-- .bar .bar-nav -->
+
+            <div class="content">
+                <p class="content-padded">
+                    <canvas id="myChart" width="400" height="400"></canvas>
+                </p> <!-- .content-padded -->
+            </div> <!-- .content -->
+        </div> <!-- #modal -->
+
+        <!--
+            ADD EXPENSE MODAL
+         -->
+        <div id="addExpenseModal" class="modal">
+            <header class="bar bar-nav">
+                <a class="icon icon-close pull-right" href="#addExpenseModal"></a>
+                <h1 class="title">Add expense</h1>
+            </header> <!-- .bar .bar-nav -->
+
+            <div class="content">
+                <div class="content-padded">
+                    <form id="addExpense" action="#">
+                        <input type="text" id="name" placeholder="Expense description" autofocus/>
+                        <input type="date" id="date" name="date">
+                        <input type="number" id="amount" name="amount" min="0" step="any" placeholder="Amount">
+                        <select name="category" id="category">
+                            <option value="shopping-cart" selected>Shopping</option>
+                            <option value="gamepad">Entertainment</option>
+                            <option value="plug">Bills</option>
+                            <option value="cutlery">Restaurants</option>
+                            <option value="car">Transport</option>
+                            <option value="home">Household</option>
+                            <option value="plane">Travel</option>
+                            <option value="briefcase">Work</option>
+                            <option value="university">Education</option>
+                            <option value="cube">Other</option>
+                        </select>
+                        <button type="submit" id="submit" name="submit" class="btn btn-positive btn-block">
+                            Add <span class="icon icon-plus"></span>
+                        </button>
+                    </form> <!-- #addExpense -->
+                </div> <!-- .content-padded -->
+            </div> <!-- .content -->
+        </div> <!-- #modal -->
+
+    </div> <!-- .content -->
+
+    <!-- Scripts -->
+    <!-- <script src="indexeddb.shim.min.js"></script> -->
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/ratchet/dist/js/ratchet.min.js"></script>
+    <script src="bower_components/chartjs/Chart.min.js"></script>
+    <script src="db.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

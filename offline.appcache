@@ -1,0 +1,19 @@
+CACHE MANIFEST
+# v3
+
+# Other
+./index.html
+
+# CSS
+./style.css
+./bower_components/ratchet/dist/css/ratchet.min.css
+./bower_components/ratchet/dist/fonts/ratchicons.woff
+
+# JS
+./bower_components/ratchet/dist/js/ratchet.min.js
+./bower_components/jquery/dist/jquery.min.js
+./app.js
+./db.js
+
+NETWORK:
+*
